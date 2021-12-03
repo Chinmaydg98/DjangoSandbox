@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home - index</title>
-</head>
-<body>
-    <form action="/calculate" method="GET">
-        <table align="center">
-            <th><h1>Free form calculator</h1><br><h3>Please enter an expression:</h3></th>
-            <tr><td>
-                <textarea name="inExpression" style="margin: 0px; width: 600px; height: 100px;" required></textarea>
-            </td></tr>
-            <tr><td>
-                <button type="submit" >Calculate</button>
-            </td></tr>
-        </table>
-    </form>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Hello, this is the homepage</h1>
+{% endblock content%}
