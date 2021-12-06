@@ -9,8 +9,8 @@ def index(request):
 
 def calculate(request):
     """Calculation"""
-    expression = request.GET.get('inExpression', '')
-
+    expression = request.POST.get('inExpression', '')
+    print(expression)
     if expression == '':
         return render(request, 'calculator.html')
     if expression != '':

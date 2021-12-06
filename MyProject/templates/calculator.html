@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form action="/calculate" method="GET">
-    <table align="center">
-        <th><h1>Free form calculator</h1><br><h3>Please enter an expression:</h3></th>
-        <tr><td>
-            <textarea name="inExpression" style="margin: 0px; width: 600px; height: 100px;" required></textarea>
-        </td></tr>
-        <tr><td>
-            <button type="submit" >Calculate</button>
-        </td></tr>
-    </table>
+<div class="container">
+<h1>Free form calculator</h1>
+<form action="/calculate/" method="POST">{% csrf_token%}
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" cl ass="form-label">Please enter an expression:</label>
+      <textarea name="inExpression" class="form-control" id="exampleFormControlTextarea1" rows="1" required></textarea>
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Calculate</button>
+    </div>
 </form>
+</div>
 {% endblock content%}
