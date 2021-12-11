@@ -14,3 +14,33 @@ class Journal(models.Model):
     def __str__(self):
         """Simply returns name of Journal"""
         return str(self.title).upper()
+
+class Entry(models.Model):
+    """
+    An entry belongs to a Journal
+    An entry includes Topics
+    """
+    journal = models.ForeignKey(Journal, on_delete = models.CASCADE)
+    text = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        """Return content in short"""
+        return str(self.text[:50])
+
+    class Meta():
+        verbose_name_plural = 'entries'
+
+class Topic(models.Model):
+    """
+    A topic belongs to an Entry.
+    """
+    entry = models.ForeignKey(Entry, on_delete = models.CASCADE)
+    text = models.TextField()
+
+    def __str__(self):
+        """Return content in short"""
+        return str(self.text[:50])
+
+    class Meta:
+        verbose_name_plural = 'Topics'
