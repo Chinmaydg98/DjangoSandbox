@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Journals</title>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+    <div class="container">
+    <h1>Create a journal:</h1>
+    <form action="{% url 'newJournal' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="col-auto">
+            <button name="submit" type="submit" class="btn btn-primary mb-3">Add</button>
+        </div>
+    </form>
+    </div>
+    {% endblock content %}
+</body>
+</html>

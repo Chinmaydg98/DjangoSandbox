@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Journals</title>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+    <h1>List of Journals created:</h1>
+    <h2></h2>
+    <br>
+    <table class="table table-sm">
+        <thead>
+        <tr>
+            <th>Title</th><th>Date added</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for journal in journals %}
+        <tr>
+            <td>{{ journal.title }}</td><td>{{ journal.date_added }}</td>
+        </tr>
+        </tbody>
+        <caption>Click <a href="{% url 'newJournal' %}">here</a> to add new</caption>
+        {% empty %}
+        <caption>No journals created yet, click <a href="{% url 'newJournal' %}">here</a> to add</caption>
+        {% endfor %}
+    </table>
+    {% endblock content %}
+</body>
+</html>

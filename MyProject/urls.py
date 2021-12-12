@@ -16,9 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from journals_app import views as journalViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('calculate/', views.calculate, name='calculate'),
+
+    # Journals_URLS
+    path('journals/', journalViews.JournalsPage, name='journals'),
+    path('new_journal/', journalViews.newJournal, name='newJournal'),
 ]
