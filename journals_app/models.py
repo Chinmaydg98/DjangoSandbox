@@ -29,7 +29,7 @@ class Entry(models.Model):
         """Return content in short"""
         return str(self.text[:50])
 
-    class Meta():
+    class Meta:
         verbose_name_plural = 'entries'
 
 
