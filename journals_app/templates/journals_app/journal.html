@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Journal Details</title>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+    <h1>{{ journal }} entries: </h1>
+    <ul>
+        {% for entry in entries %}
+        <li>
+            {{ entry.date_added|date:'M d, Y H:i' }}
+        </li>
+        <li>
+            {{ entry.text|linebreaks }}
+        </li>
+        {% empty %}
+        <caption>No entries</caption>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endblock content %}
+</body>
+</html>

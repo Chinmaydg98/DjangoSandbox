@@ -30,3 +30,13 @@ def newJournal(request):
 
     context = {'form': form}
     return render(request, 'journals_app/newJournal.html', context)
+
+
+def journal(request, journal_id):
+    """
+    Drilldown for each journal, shows list of entries
+    """
+    journalItem = Journal.objects.get(id=journal_id)
+    entries = journalItem.entry_set.order_by('-date_added')
+    context = {'journal': journalItem.title, 'entries': entries}
+    return render(request, 'journals_app/journal.html', context)

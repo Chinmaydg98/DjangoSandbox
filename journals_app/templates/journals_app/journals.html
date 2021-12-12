@@ -19,13 +19,14 @@
         <tbody>
         {% for journal in journals %}
         <tr>
-            <td>{{ journal.title|linebreaks }}</td><td>{{ journal.date_added| date:'M d, Y H:i' }}</td>
+            <td><a href="{% url 'journal' journal.id %}">{{ journal.title|linebreaks }}</a></td>
+            <td>{{ journal.date_added| date:'M d, Y H:i' }}</td>
         </tr>
         </tbody>
-        <caption>Click <a href="{% url 'newJournal' %}">here</a> to add new</caption>
         {% empty %}
-        <caption>No journals created yet, click <a href="{% url 'newJournal' %}">here</a> to add</caption>
+        <caption>No journals created yet</caption>
         {% endfor %}
+        <caption>Click <a href="{% url 'newJournal' %}">here</a> to add new</caption>
     </table>
     {% endblock content %}
 </body>

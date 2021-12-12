@@ -26,4 +26,5 @@ urlpatterns = [
     # Journals_URLS
     path('journals/', journalViews.JournalsPage, name='journals'),
     path('new_journal/', journalViews.newJournal, name='newJournal'),
+    path('journal/<int:journal_id>/', journalViews.journal, name='journal'),
 ]
