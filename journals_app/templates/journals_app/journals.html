@@ -19,7 +19,7 @@
         <tbody>
         {% for journal in journals %}
         <tr>
-            <td>{{ journal.title }}</td><td>{{ journal.date_added }}</td>
+            <td>{{ journal.title|linebreaks }}</td><td>{{ journal.date_added| date:'M d, Y H:i' }}</td>
         </tr>
         </tbody>
         <caption>Click <a href="{% url 'newJournal' %}">here</a> to add new</caption>
