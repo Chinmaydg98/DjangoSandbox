@@ -27,4 +27,5 @@ urlpatterns = [
     path('journals/', journalViews.JournalsPage, name='journals'),
     path('new_journal/', journalViews.newJournal, name='newJournal'),
     path('journal/<int:journal_id>/', journalViews.journal, name='journal'),
+    path('entry/', journalViews.newEntry, name='newEntry'),
 ]

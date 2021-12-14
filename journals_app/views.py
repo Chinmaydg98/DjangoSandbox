@@ -38,5 +38,24 @@ def journal(request, journal_id):
     """
     journalItem = Journal.objects.get(id=journal_id)
     entries = journalItem.entry_set.order_by('-date_added')
-    context = {'journal': journalItem.title, 'entries': entries}
+    context = {'journal': journalItem.title, 'entries': entries, 'journal_id': journal_id}
     return render(request, 'journals_app/journal.html', context)
+
+
+def newEntry(request):
+    """
+    Creation of new Entries done here.
+    Uses ModelForm (EntryForm)
+    """
+    journal_id = request.GET.get('journal_id')
+    print(journal_id)
+    if request.method != 'POST':
+        form = EntryForm()
+    else:
+        form = EntryForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/journal/'+journal_id+'/')
+
+    context = {'form': form, 'journal_id': journal_id}
+    return render(request, 'journals_app/newEntry.html', context)

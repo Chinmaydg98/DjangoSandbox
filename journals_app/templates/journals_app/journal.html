@@ -20,6 +20,8 @@
         <caption>No entries</caption>
         </li>
         {% endfor %}
+        <br>
+        <caption>Click <a href="{% url 'newEntry' %}?journal_id={{ journal_id }}">here</a> to add</caption>
     </ul>
     {% endblock content %}
 </body>

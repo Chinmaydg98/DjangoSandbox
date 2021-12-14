@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Entry details</title>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+        <form action="{% url 'newEntry' %}?journal_id={{ journal_id }}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button name="Submit">Add entry</button>
+        </form>
+    {% endblock content %}
+</body>
+</html>
