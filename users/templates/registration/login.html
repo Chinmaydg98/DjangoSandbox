@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+    {% if form.errors %}
+    <caption>Invalid Credentials</caption>
+    {% endif %}
+
+    <form action="{% url 'users:login' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">Login</button>
+        <input type="hidden" name="next" value="{% url 'index' %}">
+    </form>
+    <br>
+    <h5>New user? Click <a href="{% url 'users:register' %}">here</a> to register</h5>
+{% endblock content %}
