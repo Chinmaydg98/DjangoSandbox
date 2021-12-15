@@ -22,5 +22,5 @@ class EntryForm(forms.ModelForm):
     """
     class Meta:
         model = Entry
-        fields = ['journal', 'text']
-        labels = {'journal': 'Journal', 'text': ''}
+        fields = ['text']
+        labels = {'text': 'Enter some text:'}
