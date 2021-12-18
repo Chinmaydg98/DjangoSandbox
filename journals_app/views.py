@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import *
-from .forms import *
+from .models import Journal, Entry
+from .forms import JournalForm, EntryForm
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 
